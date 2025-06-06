@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProShop - Premium Sports Equipment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">ProShop</div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showPage('home')">Home</a></li>
+            <li><a href="#" onclick="showPage('sports')">Sports</a></li>
+            <li><a href="#" onclick="showPage('about')">About</a></li>
+            <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+        </ul>
+        <div class="cart-icon" onclick="toggleCart()">
+            🛒
+            <span class="cart-count" id="cartCount">0</span>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div class="page active" id="home">
+        <section class="hero">
+            <div class="floating-shapes">
+                <div class="shape">⚽</div>
+                <div class="shape">🏀</div>
+                <div class="shape">🎾</div>
+                <div class="shape">🏊‍♂️</div>
+            </div>
+            <div class="hero-content">
+                <h1>Welcome to ProShop</h1>
+                <p>Your Ultimate Destination for Premium Sports Equipment</p>
+                <a href="#" onclick="showPage('sports')" class="cta-button">Shop Now</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Sports Overview Page -->
+    <div class="page" id="sports">
+        <section class="sports-section">
+            <h2 class="section-title">Choose Your Sport</h2>
+            <div class="sports-grid">
+                <div class="sport-card" onclick="showPage('swimming')">
+                    <span class="sport-icon">🏊‍♂️</span>
+                    <h3>Swimming</h3>
+                    <p>Professional swimming equipment for all levels</p>
+                </div>
+
+                <div class="sport-card" onclick="showPage('tennis')">
+                    <span class="sport-icon">🎾</span>
+                    <h3>Tennis</h3>
+                    <p>High-quality tennis gear for champions</p>
+                </div>
+
+                <div class="sport-card" onclick="showPage('basketball')">
+                    <span class="sport-icon">🏀</span>
+                    <h3>Basketball</h3>
+                    <p>Professional basketball equipment and accessories</p>
+                </div>
+
+                <div class="sport-card" onclick="showPage('football')">
+                    <span class="sport-icon">⚽</span>
+                    <h3>Football</h3>
+                    <p>Complete football gear for passionate players</p>
+                </div>
+
+                <div class="sport-card" onclick="showPage('running')">
+                    <span class="sport-icon">🏃‍♂️</span>
+                    <h3>Running</h3>
+                    <p>Premium running gear for every distance</p>
+                </div>
+
+                <div class="sport-card" onclick="showPage('fitness')">
+                    <span class="sport-icon">🏋️‍♂️</span>
+                    <h3>Gym & Fitness</h3>
+                    <p>Complete fitness equipment for your workout</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div class="page" id="about">
+        <section class="sport-page">
+            <h2 class="section-title">About ProShop</h2>
+            <div class="about-content">
+                <p>ProShop is your premier destination for high-quality sports equipment. Founded in 2010, we've been providing athletes of all levels with the gear they need to perform at their best.</p>
+                <p>Our mission is to combine cutting-edge technology with expert craftsmanship to deliver products that enhance your performance and enjoyment of sports.</p>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-photo"></div>
+                        <h4>John Smith</h4>
+                        <p>Founder & CEO</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo"></div>
+                        <h4>Sarah Johnson</h4>
+                        <p>Head of Product</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo"></div>
+                        <h4>Mike Davis</h4>
+                        <p>Customer Experience</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div class="page" id="contact">
+        <section class="sport-page">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p><strong>Email:</strong> info@proshop.com</p>
+                    <p><strong>Phone:</strong> (555) 123-4567</p>
+                    <p><strong>Address:</strong> 123 Sports Ave, Athletic City, AC 90210</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">📱</a>
+                        <a href="#" class="social-icon">📘</a>
+                        <a href="#" class="social-icon">📸</a>
+                        <a href="#" class="social-icon">🐦</a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button type="submit" class="cta-button">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <span class="close-cart" onclick="toggleCart()">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total" id="cartTotal">Total: $0.00</div>
+            <button class="cta-button" style="width: 100%;" onclick="checkout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
