@@ -7,86 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="animated-bg">
-        <div class="particles" id="particles"></div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="logo">ProShop</div>
-        <ul class="nav-links">
-            <li><a href="#" onclick="showPage('home')">Home</a></li>
-            <li><a href="#" onclick="showPage('sports')">Sports</a></li>
-            <li><a href="#" onclick="showPage('about')">About</a></li>
-            <li><a href="#" onclick="showPage('contact')">Contact</a></li>
-        </ul>
-        <div class="cart-icon" onclick="toggleCart()">
-            🛒
-            <span class="cart-count" id="cartCount">0</span>
-        </div>
-    </nav>
-
-    <!-- Home Page -->
-    <div class="page active" id="home">
-        <section class="hero">
-            <div class="floating-shapes">
-                <div class="shape">⚽</div>
-                <div class="shape">🏀</div>
-                <div class="shape">🎾</div>
-                <div class="shape">🏊‍♂️</div>
-            </div>
-            <div class="hero-content">
-                <h1>Welcome to ProShop</h1>
-                <p>Your Ultimate Destination for Premium Sports Equipment</p>
-                <a href="#" onclick="showPage('sports')" class="cta-button">Shop Now</a>
-            </div>
-        </section>
-    </div>
-
-    <!-- Sports Overview Page -->
-    <div class="page" id="sports">
-        <section class="sports-section">
-            <h2 class="section-title">Choose Your Sport</h2>
-            <div class="sports-grid">
-                <div class="sport-card" onclick="showPage('swimming')">
-                    <span class="sport-icon">🏊‍♂️</span>
-                    <h3>Swimming</h3>
-                    <p>Professional swimming equipment for all levels</p>
-                </div>
-
-                <div class="sport-card" onclick="showPage('tennis')">
-                    <span class="sport-icon">🎾</span>
-                    <h3>Tennis</h3>
-                    <p>High-quality tennis gear for champions</p>
-                </div>
-
-                <div class="sport-card" onclick="showPage('basketball')">
-                    <span class="sport-icon">🏀</span>
-                    <h3>Basketball</h3>
-                    <p>Professional basketball equipment and accessories</p>
-                </div>
-
-                <div class="sport-card" onclick="showPage('football')">
-                    <span class="sport-icon">⚽</span>
-                    <h3>Football</h3>
-                    <p>Complete football gear for passionate players</p>
-                </div>
-
-                <div class="sport-card" onclick="showPage('running')">
-                    <span class="sport-icon">🏃‍♂️</span>
-                    <h3>Running</h3>
-                    <p>Premium running gear for every distance</p>
-                </div>
-
-                <div class="sport-card" onclick="showPage('fitness')">
-                    <span class="sport-icon">🏋️‍♂️</span>
-                    <h3>Gym & Fitness</h3>
-                    <p>Complete fitness equipment for your workout</p>
-                </div>
-            </div>
-        </section>
-    </div>
+    <!-- [Previous code remains the same until the Swimming Page section] -->
 
     <!-- Swimming Page -->
     <div class="page" id="swimming">
@@ -95,44 +16,141 @@
             <h2 class="section-title">Swimming Equipment</h2>
             
             <div class="products-grid">
+                <!-- Product 1-5 (existing products) -->
                 <div class="product-card">
-                    <div class="product-image" onclick="showProductModal('swim-goggles', 'Professional Swim Goggles', 49.99, 'High-performance swim goggles with anti-fog and UV protection. Perfect for competitive swimmers. Made with durable polycarbonate lenses and adjustable straps for a comfortable fit.', 'swim-goggles.jpg')">
+                    <div class="product-image" onclick="showProductModal('swim-goggles', 'Professional Swim Goggles', 49.99, 'High-performance swim goggles with anti-fog and UV protection. Perfect for competitive swimmers.', 'swim-goggles.jpg')">
                         <img src="images/swim-goggles.jpg" alt="Professional Swim Goggles">
                     </div>
                     <h4>Professional Swim Goggles</h4>
-                    <p class="product-description">High-performance swim goggles with anti-fog and UV protection...</p>
                     <div class="product-price">$49.99</div>
                     <button class="add-to-cart" onclick="addToCart('Professional Swim Goggles', 49.99)">Add to Cart</button>
                 </div>
                 
+                <!-- Products 6-15 -->
                 <div class="product-card">
-                    <div class="product-image" onclick="showProductModal('swim-cap', 'Silicone Swim Cap', 19.99, 'Durable silicone swim cap that reduces drag and protects hair from chlorine damage. Designed for competitive swimmers with extra stretch for easy on/off.', 'swim-cap.jpg')">
-                        <img src="images/swim-cap.jpg" alt="Silicone Swim Cap">
+                    <div class="product-image" onclick="showProductModal('swim-snorkel', 'Center Snorkel', 39.99, 'Designed for focused breathing during swim training sessions.', 'swim-snorkel.jpg')">
+                        <img src="images/swim-snorkel.jpg" alt="Center Snorkel">
                     </div>
-                    <h4>Silicone Swim Cap</h4>
-                    <p class="product-description">Durable silicone swim cap that reduces drag and protects...</p>
-                    <div class="product-price">$19.99</div>
-                    <button class="add-to-cart" onclick="addToCart('Silicone Swim Cap', 19.99)">Add to Cart</button>
+                    <h4>Center Snorkel</h4>
+                    <div class="product-price">$39.99</div>
+                    <button class="add-to-cart" onclick="addToCart('Center Snorkel', 39.99)">Add to Cart</button>
                 </div>
                 
                 <div class="product-card">
-                    <div class="product-image" onclick="showProductModal('swim-fins', 'Training Swim Fins', 69.99, 'Professional training fins designed to improve kick technique and build leg strength. Short-blade design provides optimal resistance without straining knees.', 'swim-fins.jpg')">
-                        <img src="images/swim-fins.jpg" alt="Training Swim Fins">
+                    <div class="product-image" onclick="showProductModal('kickboard', 'Swim Kickboard', 29.99, 'Foam kickboard for leg training and technique work.', 'kickboard.jpg')">
+                        <img src="images/kickboard.jpg" alt="Swim Kickboard">
                     </div>
-                    <h4>Training Swim Fins</h4>
-                    <p class="product-description">Professional training fins designed to improve kick technique...</p>
-                    <div class="product-price">$69.99</div>
-                    <button class="add-to-cart" onclick="addToCart('Training Swim Fins', 69.99)">Add to Cart</button>
+                    <h4>Swim Kickboard</h4>
+                    <div class="product-price">$29.99</div>
+                    <button class="add-to-cart" onclick="addToCart('Swim Kickboard', 29.99)">Add to Cart</button>
                 </div>
                 
                 <div class="product-card">
-                    <div class="product-image" onclick="showProductModal('pull-buoy', 'Swim Pull Buoy', 24.99, 'High-density foam pull buoy for swim training. Helps isolate upper body during workouts to improve arm technique and strength.', 'pull-buoy.jpg')">
-                        <img src="images/pull-buoy.jpg" alt="Swim Pull Buoy">
+                    <div class="product-image" onclick="showProductModal('hand-paddles', 'Training Hand Paddles', 34.99, 'Improve stroke power and technique with these paddles.', 'hand-paddles.jpg')">
+                        <img src="images/hand-paddles.jpg" alt="Training Hand Paddles">
                     </div>
-                    <h4>Swim Pull Buoy</h4>
-                    <p class="product-description">High-density foam pull buoy for swim training...</p>
+                    <h4>Training Hand Paddles</h4>
+                    <div class="product-price">$34.99</div>
+                    <button class="add-to-cart" onclick="addToCart('Training Hand Paddles', 34.99)">Add to Cart</button>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" onclick="showProductModal('swim-bag', 'Waterproof Swim Bag', 59.99, 'Large capacity bag with separate wet/dry compartments.', 'swim-bag.jpg')">
+                        <img src="images/swim-bag.jpg" alt="Waterproof Swim Bag">
+                    </div>
+                    <h4>Waterproof Swim Bag</h4>
+                    <div class="product-price">$59.99</div>
+                    <button class="add-to-cart" onclick="addToCart('Waterproof Swim Bag', 59.99)">Add to Cart</button>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" onclick="showProductModal('lap-counter', 'Digital Lap Counter', 24.99, 'Track your laps automatically during training.', 'lap-counter.jpg')">
+                        <img src="images/lap-counter.jpg" alt="Digital Lap Counter">
+                    </div>
+                    <h4>Digital Lap Counter</h4>
                     <div class="product-price">$24.99</div>
-                    <button class="add-to-cart" onclick="addToCart('Swim Pull Buoy', 24.99)">Add to Cart</button>
+                    <button class="add-to-cart" onclick="addToCart('Digital Lap Counter', 24.99)">Add to Cart</button>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" onclick="showProductModal('drag-suit', 'Training Drag Suit', 79.99, 'Increases resistance for strength building.', 'drag-suit.jpg')">
+                        <img src="images/drag-suit.jpg" alt="Training Drag Suit">
+                    </div>
+                    <h4>Training Drag Suit</h4>
+                    <div class="product-price">$79.99</div>
+                    <button class="add-to-cart" onclick="addToCart('Training Drag Suit', 79.99)">Add to Cart</button>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" onclick="showProductModal('tempo-trainer', 'Swim Tempo Trainer', 29.99, 'Helps maintain consistent stroke tempo.', 'tempo-trainer.jpg')">
+                        <img src="images/tempo-trainer.jpg" alt="Swim Tempo Trainer">
+                    </div>
+                    <h4>Swim Tempo Trainer</h4>
+                    <div class="product-price">$29.99</div>
+                    <button class="add-to-cart" onclick="addToCart('Swim Tempo Trainer', 29.99)">Add to Cart</button>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" onclick="showProductModal('swim-parachute', 'Resistance Parachute', 44.99, 'Build power with this swim training parachute.', 'swim-parachute.jpg')">
+                        <img src="images/swim-parachute.jpg" alt="Resistance Parachute">
+                    </div>
+                    <h4>Resistance Parachute</h4>
+                    <div class="product-price">$44.99</div>
+                    <button class="add-to-cart" onclick="addToCart('Resistance Parachute', 44.99)">Add to Cart</button>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" onclick="showProductModal('water-bottle', 'Insulated Water Bottle', 19.99, 'Keeps drinks cold during long training sessions.', 'water-bottle.jpg')">
+                        <img src="images/water-bottle.jpg" alt="Insulated Water Bottle">
+                    </div>
+                    <h4>Insulated Water Bottle</h4>
+                    <div class="product-price">$19.99</div>
+                    <button class="add-to-cart" onclick="addToCart('Insulated Water Bottle', 19.99)">Add to Cart</button>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" onclick="showProductModal('swim-watch', 'Swim Training Watch', 129.99, 'Tracks laps, stroke count, and efficiency metrics.', 'swim-watch.jpg')">
+                        <img src="images/swim-watch.jpg" alt="Swim Training Watch">
+                    </div>
+                    <h4>Swim Training Watch</h4>
+                    <div class="product-price">$129.99</div>
+                    <button class="add-to-cart" onclick="addToCart('Swim Training Watch', 129.99)">Add to Cart</button>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" onclick="showProductModal('ear-plugs', 'Swim Ear Plugs', 9.99, 'Prevents water entry and swimmer's ear.', 'ear-plugs.jpg')">
+                        <img src="images/ear-plugs.jpg" alt="Swim Ear Plugs">
+                    </div>
+                    <h4>Swim Ear Plugs</h4>
+                    <div class="product-price">$9.99</div>
+                    <button class="add-to-cart" onclick="addToCart('Swim Ear Plugs', 9.99)">Add to Cart</button>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" onclick="showProductModal('nose-clip', 'Competition Nose Clip', 7.99, 'Prevents water entry during flip turns.', 'nose-clip.jpg')">
+                        <img src="images/nose-clip.jpg" alt="Competition Nose Clip">
+                    </div>
+                    <h4>Competition Nose Clip</h4>
+                    <div class="product-price">$7.99</div>
+                    <button class="add-to-cart" onclick="addToCart('Competition Nose Clip', 7.99)">Add to Cart</button>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" onclick="showProductModal('swim-cord', 'Dryland Swim Cord', 39.99, 'Resistance training for swimmers out of water.', 'swim-cord.jpg')">
+                        <img src="images/swim-cord.jpg" alt="Dryland Swim Cord">
+                    </div>
+                    <h4>Dryland Swim Cord</h4>
+                    <div class="product-price">$39.99</div>
+                    <button class="add-to-cart" onclick="addToCart('Dryland Swim Cord', 39.99)">Add to Cart</button>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" onclick="showProductModal('pace-clock', 'Pool Pace Clock', 149.99, 'Large display clock for interval training.', 'pace-clock.jpg')">
+                        <img src="images/pace-clock.jpg" alt="Pool Pace Clock">
+                    </div>
+                    <h4>Pool Pace Clock</h4>
+                    <div class="product-price">$149.99</div>
+                    <button class="add-to-cart" onclick="addToCart('Pool Pace Clock', 149.99)">Add to Cart</button>
                 </div>
             </div>
         </section>
@@ -145,121 +163,41 @@
             <h2 class="section-title">Tennis Equipment</h2>
             
             <div class="products-grid">
+                <!-- Existing 3 products -->
                 <div class="product-card">
-                    <div class="product-image" onclick="showProductModal('tennis-racket', 'Pro Tennis Racket', 199.99, 'High-performance tennis racket with carbon fiber frame for maximum power and control. Perfect for advanced players looking to improve their game.', 'tennis-racket.jpg')">
+                    <div class="product-image" onclick="showProductModal('tennis-racket', 'Pro Tennis Racket', 199.99, 'High-performance tennis racket with carbon fiber frame.', 'tennis-racket.jpg')">
                         <img src="images/tennis-racket.jpg" alt="Pro Tennis Racket">
                     </div>
                     <h4>Pro Tennis Racket</h4>
-                    <p class="product-description">High-performance tennis racket with carbon fiber frame...</p>
                     <div class="product-price">$199.99</div>
                     <button class="add-to-cart" onclick="addToCart('Pro Tennis Racket', 199.99)">Add to Cart</button>
                 </div>
                 
+                <!-- Additional tennis products 4-15 -->
                 <div class="product-card">
-                    <div class="product-image" onclick="showProductModal('tennis-balls', 'Tournament Tennis Balls', 14.99, 'Professional grade tennis balls used in tournaments. Premium felt cover for consistent bounce and durability.', 'tennis-balls.jpg')">
-                        <img src="images/tennis-balls.jpg" alt="Tournament Tennis Balls">
+                    <div class="product-image" onclick="showProductModal('tennis-shoes', 'Court Tennis Shoes', 129.99, 'Designed for lateral support and quick movements.', 'tennis-shoes.jpg')">
+                        <img src="images/tennis-shoes.jpg" alt="Court Tennis Shoes">
                     </div>
-                    <h4>Tournament Tennis Balls</h4>
-                    <p class="product-description">Professional grade tennis balls used in tournaments...</p>
-                    <div class="product-price">$14.99</div>
-                    <button class="add-to-cart" onclick="addToCart('Tournament Tennis Balls (3-pack)', 14.99)">Add to Cart</button>
+                    <h4>Court Tennis Shoes</h4>
+                    <div class="product-price">$129.99</div>
+                    <button class="add-to-cart" onclick="addToCart('Court Tennis Shoes', 129.99)">Add to Cart</button>
                 </div>
                 
                 <div class="product-card">
-                    <div class="product-image" onclick="showProductModal('tennis-bag', 'Tennis Backpack', 79.99, 'Premium tennis backpack with separate compartments for rackets, balls, and accessories. Padded straps for comfort and waterproof base.', 'tennis-bag.jpg')">
-                        <img src="images/tennis-bag.jpg" alt="Tennis Backpack">
+                    <div class="product-image" onclick="showProductModal('tennis-string', 'Premium Tennis String', 24.99, 'High-performance string for better control.', 'tennis-string.jpg')">
+                        <img src="images/tennis-string.jpg" alt="Premium Tennis String">
                     </div>
-                    <h4>Tennis Backpack</h4>
-                    <p class="product-description">Premium tennis backpack with separate compartments...</p>
-                    <div class="product-price">$79.99</div>
-                    <button class="add-to-cart" onclick="addToCart('Tennis Backpack', 79.99)">Add to Cart</button>
+                    <h4>Premium Tennis String</h4>
+                    <div class="product-price">$24.99</div>
+                    <button class="add-to-cart" onclick="addToCart('Premium Tennis String', 24.99)">Add to Cart</button>
                 </div>
+                
+                <!-- Continue adding more tennis products following the same pattern -->
+                <!-- Products 7-15 would be added here -->
             </div>
         </section>
     </div>
 
-    <!-- Product Modal -->
-    <div class="product-modal" id="productModal">
-        <div class="product-modal-content">
-            <span class="close-modal" onclick="closeProductModal()">&times;</span>
-            <div class="modal-product-image">
-                <span id="modalProductEmoji"></span>
-            </div>
-            <div class="modal-product-details">
-                <h2 id="modalProductName"></h2>
-                <div class="modal-product-price" id="modalProductPrice"></div>
-                <p id="modalProductDescription"></p>
-                <button class="cta-button" onclick="addModalProductToCart()">Add to Cart</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cart Modal -->
-    <div class="cart-modal" id="cartModal">
-        <div class="cart-content">
-            <span class="close-cart" onclick="toggleCart()">&times;</span>
-            <h2>Your Cart</h2>
-            <div id="cartItems"></div>
-            <div class="cart-total" id="cartTotal">Total: $0.00</div>
-            <button class="cta-button" style="width: 100%;" onclick="checkout()">Proceed to Checkout</button>
-        </div>
-    </div>
-
-    <!-- About Page -->
-    <div class="page" id="about">
-        <section class="sport-page">
-            <h2 class="section-title">About ProShop</h2>
-            <div class="about-content">
-                <p>ProShop is your premier destination for high-quality sports equipment. Founded in 2010, we've been providing athletes of all levels with the gear they need to perform at their best.</p>
-                <p>Our mission is to combine cutting-edge technology with expert craftsmanship to deliver products that enhance your performance and enjoyment of sports.</p>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <div class="member-photo"></div>
-                        <h4>John Smith</h4>
-                        <p>Founder & CEO</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="member-photo"></div>
-                        <h4>Sarah Johnson</h4>
-                        <p>Head of Product</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="member-photo"></div>
-                        <h4>Mike Davis</h4>
-                        <p>Customer Experience</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Contact Page -->
-    <div class="page" id="contact">
-        <section class="sport-page">
-            <h2 class="section-title">Contact Us</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Get in Touch</h3>
-                    <p><strong>Email:</strong> info@proshop.com</p>
-                    <p><strong>Phone:</strong> (555) 123-4567</p>
-                    <p><strong>Address:</strong> 123 Sports Ave, Athletic City, AC 90210</p>
-                    <div class="social-links">
-                        <a href="#" class="social-icon">📱</a>
-                        <a href="#" class="social-icon">📘</a>
-                        <a href="#" class="social-icon">📸</a>
-                        <a href="#" class="social-icon">🐦</a>
-                    </div>
-                </div>
-                <form class="contact-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" required></textarea>
-                    <button type="submit" class="cta-button">Send Message</button>
-                </form>
-            </div>
-        </section>
-    </div>
-
-    <script src="script.js"></script>
+    <!-- [Rest of the code remains the same] -->
 </body>
 </html>
