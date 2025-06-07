@@ -512,6 +512,204 @@ body {
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
     transition: left 0.5s;
 }
+/* (Keep all your existing CSS and add these new styles at the end) */
+
+/* Product Cards */
+.product-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.product-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.product-emoji {
+    font-size: 4rem;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.product-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.product-description {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.product-price {
+    font-weight: bold;
+    color: #4ecdc4;
+    font-size: 1.3rem;
+    margin: 1rem 0;
+}
+
+.add-to-cart {
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    width: 100%;
+}
+
+.add-to-cart:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+/* Product Modal */
+.product-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+}
+
+.product-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 2rem;
+    border-radius: 20px;
+    max-width: 800px;
+    width: 90%;
+    display: flex;
+    gap: 2rem;
+}
+
+.modal-product-image {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+}
+
+.modal-product-image span {
+    font-size: 8rem;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+}
+
+.modal-product-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-product-details h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.modal-product-price {
+    font-size: 1.8rem;
+    color: #4ecdc4;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.modal-product-details p {
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: #fff;
+}
+
+/* Back Button */
+.back-button {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-5px);
+}
+
+/* Products Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .product-modal-content {
+        flex-direction: column;
+    }
+    
+    .modal-product-image {
+        min-height: 200px;
+    }
+}
 
 .add-to-cart:hover::before {
     left: 100%;
