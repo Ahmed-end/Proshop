@@ -1,3 +1,6 @@
+// Replace YOUR_DISCORD_WEBHOOK_URL with your actual Discord webhook URL
+const DISCORD_WEBHOOK_URL = 'https://discordapp.com/api/webhooks/1381570573980930141/Tt-RECOhTyjH9NtM5o6AtTk7MwbEdD36CN7aRY2LUsxQW2hne1op6RuDY-odag5wIgrW';
+
 // Initialize cart
 let cart = [];
 let cartTotal = 0;
@@ -142,7 +145,7 @@ function renderCartItems() {
         itemElement.innerHTML = `
             <div>
                 <h4>${item.name}</h4>
-                <p>$${item.price.toFixed(2)} × ${item.quantity}</p>
+                <p>EGP ${item.price.toFixed(2)} × ${item.quantity}</p>
             </div>
             <div>
                 <button class="quantity-btn" onclick="updateQuantity(${index}, -1)">-</button>
@@ -156,7 +159,7 @@ function renderCartItems() {
     });
     
     // Update total
-    cartTotalElement.textContent = `Total: $${cartTotal.toFixed(2)}`;
+    cartTotalElement.textContent = `Total: EGP ${cartTotal.toFixed(2)}`;
 }
 
 // Toggle cart modal
@@ -171,27 +174,161 @@ function toggleCart() {
     }
 }
 
-// Checkout function
+// Enhanced checkout function with Discord integration
 function checkout() {
     if (cart.length === 0) {
         alert('Your cart is empty!');
         return;
     }
     
-    alert(`Thank you for your purchase! Total: $${cartTotal.toFixed(2)}`);
+    // Hide cart modal and show checkout modal
+    document.getElementById('cartModal').style.display = 'none';
+    document.getElementById('checkoutModal').style.display = 'block';
     
-    // Clear cart
-    cart = [];
-    cartTotal = 0;
-    updateCartUI();
-    toggleCart();
+    // Populate order summary
+    populateOrderSummary();
 }
 
-// Close cart when clicking outside
+// Populate order summary in checkout modal
+function populateOrderSummary() {
+    const checkoutItemsContainer = document.getElementById('checkoutItems');
+    const checkoutTotalElement = document.getElementById('checkoutTotal');
+    
+    // Clear existing items
+    checkoutItemsContainer.innerHTML = '';
+    
+    // Add each item
+    cart.forEach((item) => {
+        const itemElement = document.createElement('div');
+        itemElement.classList.add('checkout-item');
+        
+        itemElement.innerHTML = `
+            <span>${item.name} × ${item.quantity}</span>
+            <span>EGP ${(item.price * item.quantity).toFixed(2)}</span>
+        `;
+        
+        checkoutItemsContainer.appendChild(itemElement);
+    });
+    
+    // Update total
+    checkoutTotalElement.textContent = `Total: EGP ${cartTotal.toFixed(2)}`;
+}
+
+// Close checkout modal
+function closeCheckout() {
+    document.getElementById('checkoutModal').style.display = 'none';
+}
+
+// Submit order to Discord webhook
+async function submitOrder() {
+    const form = document.getElementById('checkoutForm');
+    const submitBtn = document.querySelector('.checkout-btn');
+    
+    // Get form data
+    const formData = new FormData(form);
+    const customerName = formData.get('customerName');
+    const customerEmail = formData.get('customerEmail');
+    const customerPhone = formData.get('customerPhone');
+    const deliveryAddress = formData.get('deliveryAddress');
+    const additionalNotes = formData.get('additionalNotes') || 'None';
+    
+    // Disable submit button and show loading state
+    submitBtn.textContent = 'Processing Order...';
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+    
+    // Create order summary text
+    let orderItems = '';
+    cart.forEach((item, index) => {
+        orderItems += `${index + 1}. ${item.name} × ${item.quantity} - EGP ${(item.price * item.quantity).toFixed(2)}\n`;
+    });
+    
+    // Create Discord embed message
+    const discordMessage = {
+        embeds: [{
+            title: "🛒 New Order from ProShop",
+            color: 0x00ff00, // Green color
+            fields: [
+                {
+                    name: "👤 Customer Information",
+                    value: `**Name:** ${customerName}\n**Email:** ${customerEmail}\n**Phone:** ${customerPhone}`,
+                    inline: false
+                },
+                {
+                    name: "📍 Delivery Address",
+                    value: `${deliveryAddress}`,
+                    inline: false
+                },
+                {
+                    name: "🛍️ Order Items",
+                    value: `\`\`\`\n${orderItems}\`\`\``,
+                    inline: false
+                },
+                {
+                    name: "💰 Total Amount",
+                    value: `**EGP ${cartTotal.toFixed(2)}**`,
+                    inline: true
+                },
+                {
+                    name: "📝 Additional Notes",
+                    value: additionalNotes,
+                    inline: true
+                }
+            ],
+            timestamp: new Date().toISOString(),
+            footer: {
+                text: "ProShop Order System"
+            }
+        }]
+    };
+    
+    try {
+        // Send to Discord webhook
+        const response = await fetch(DISCORD_WEBHOOK_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(discordMessage)
+        });
+        
+        if (response.ok) {
+            // Success
+            alert('🎉 Order placed successfully! We will contact you soon to confirm your order.');
+            
+            // Clear cart and close modal
+            cart = [];
+            cartTotal = 0;
+            updateCartUI();
+            closeCheckout();
+            
+            // Reset form
+            form.reset();
+        } else {
+            throw new Error('Failed to send order');
+        }
+    } catch (error) {
+        console.error('Error sending order:', error);
+        alert('❌ Sorry, there was an error processing your order. Please try again or contact us directly.');
+    } finally {
+        // Re-enable submit button
+        submitBtn.textContent = 'Place Order';
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+    }
+}
+
+// Close modals when clicking outside
 window.onclick = function(event) {
     const cartModal = document.getElementById('cartModal');
+    const checkoutModal = document.getElementById('checkoutModal');
+    
     if (event.target === cartModal) {
         cartModal.style.display = 'none';
+    }
+    
+    if (event.target === checkoutModal) {
+        closeCheckout();
     }
 }
 
@@ -204,13 +341,22 @@ document.addEventListener('DOMContentLoaded', function() {
         showPage('home');
     }
     
-    // Handle form submission
+    // Handle contact form submission
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your message! We will get back to you soon.');
             this.reset();
+        });
+    }
+    
+    // Handle checkout form submission
+    const checkoutForm = document.getElementById('checkoutForm');
+    if (checkoutForm) {
+        checkoutForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            await submitOrder();
         });
     }
 });
