@@ -462,6 +462,62 @@
         </div>
     </div>
 
+
+
+    <div class="checkout-modal" id="checkoutModal">
+    <div class="checkout-content">
+        <span class="close-checkout" onclick="closeCheckout()">&times;</span>
+        <h2>Checkout Information</h2>
+        
+        <form class="checkout-form" id="checkoutForm">
+            <div class="form-group">
+                <label for="customerName">Full Name *</label>
+                <input type="text" id="customerName" name="customerName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="customerEmail">Email Address *</label>
+                <input type="email" id="customerEmail" name="customerEmail" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="customerPhone">Phone Number *</label>
+                <input type="tel" id="customerPhone" name="customerPhone" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="deliveryAddress">Delivery Address in Maadi, Cairo *</label>
+                <textarea id="deliveryAddress" name="deliveryAddress" placeholder="Please provide your full address in Maadi, Cairo including street name, building number, and any landmarks" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="additionalNotes">Additional Notes (Optional)</label>
+                <textarea id="additionalNotes" name="additionalNotes" placeholder="Any special delivery instructions or notes"></textarea>
+            </div>
+            
+            <div class="order-summary">
+                <h3>Order Summary</h3>
+                <div id="checkoutItems"></div>
+                <div class="checkout-total" id="checkoutTotal">Total: EGP 0.00</div>
+            </div>
+            
+            <button type="submit" class="cta-button checkout-btn">Place Order</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+    
+
+
+
+
+
+
+    
+
     <!-- About Page -->
     <div class="page" id="about">
         <section class="sport-page">
